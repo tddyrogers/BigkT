@@ -1,0 +1,4 @@
+counterpiece = -(g^2*t*(-33 + 2*Subscript[n, f]))/(288*Pi^5*\[Epsilon]) + 
+     (g^2*t*(1 + EulerGamma - Log[4*Pi])*(-33 + 2*Subscript[n, f]))/(288*Pi^5)
+ 
+Attributes[Subscript] = {NHoldRest}

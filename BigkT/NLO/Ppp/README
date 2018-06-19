@@ -1,0 +1,23 @@
+  
+
+1.To check cancellation of all poles for various sidis processes
+open the note book combine.nb
+. Then follow the steps in the notebook.
+
+2.The channels in combine.nb are all independent channels for
+sidis. The result for any other channel can be found identical to one
+of the listed channels. The other channels not listed in Cancelpoles###.nb can be found in cntxsc.m
+
+3.The correspondence between real and virtual channels is not one to one. The correspondence is as follows
+
+       virtual                real
+       Ag2qqb               Ag2qqbg
+       Aq2qg           Aq2qgg,Aq2qqqb,Aq2qQQb
+       Aq2gq                Aq2gqg
+        none                Ag2gqqb
+        none                Aq2qbqq
+        none                Aq2QqQb 
+
+where Aq2qg corresponds to 3 real channels. The reason is discussed in detail under Eq35 of Gordon's paper. Here the cancellation of single poles in this case agrees exactly with Gordon's discussion.
+
+4.The calculation here is the g^{\mu\nu} projection of the partonic W tensor.

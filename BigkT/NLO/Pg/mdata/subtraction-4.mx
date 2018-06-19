@@ -1,0 +1,84 @@
+subtractionpiece = 
+    ((g^2*(s^2 + s23^2)*(Q^4*(s^2 + s23^2) + s^2*(s^2 - 2*s*s23 + s23^2 + 
+            2*s*t - 2*s23*t + 2*t^2) + 2*Q^2*s*(s23*(-s23 + t) + 
+            s*(s23 + t))))/(12*Pi^5*s^2*(s - s23)^2*(Q^2 + s - s23 + t)*
+         (Q^2*s23 + s*t)) + (g^2*(s23^2 + t^2)*
+         ((2*s^2 - 2*s*(s23 - t) + (s23 - t)^2)*t^2 + Q^4*(s23^2 + t^2) + 
+          2*Q^2*t*(s23*(-s23 + t) + s*(s23 + t))))/(12*Pi^5*(s23 - t)^2*t^2*
+         (Q^2 + s - s23 + t)*(Q^2*s23 + s*t)))/\[Epsilon] + 
+     (g^2*(s^2 + s23^2)*(-Q^4 - 2*Q^2*s - s^2 - 
+        ((Q^4*(s^2 + s23^2) + s^2*(s^2 - 2*s*s23 + s23^2 + 2*s*t - 2*s23*t + 
+             2*t^2) + 2*Q^2*s*(s23*(-s23 + t) + s*(s23 + t)))*
+          (EulerGamma - Log[4*Pi]))/(s - s23)^2))/
+      (12*Pi^5*s^2*(Q^2 + s - s23 + t)*(Q^2*s23 + s*t)) - 
+     (g^2*(s23^2 + t^2)*(t^2*(2*s^2*(1 + EulerGamma - Log[4*Pi]) - 
+          2*s*(s23 - t)*(1 + EulerGamma - Log[4*Pi]) + 
+          (s23 - t)^2*(2 + EulerGamma - Log[4*Pi])) + 
+        Q^4*(-2*s23*t + s23^2*(2 + EulerGamma - Log[4*Pi]) + 
+          t^2*(2 + EulerGamma - Log[4*Pi])) + 
+        2*Q^2*t*(s*(s23 + t)*(1 + EulerGamma - Log[4*Pi]) - 
+          (s23 - t)*(EulerGamma*s23 + t - s23*Log[4*Pi]))))/
+      (12*Pi^5*(s23 - t)^2*t^2*(Q^2 + s - s23 + t)*(Q^2*s23 + s*t))
+subtractionpiece = 
+    ((g^2*(s^2 + s23^2)*(Q^4*(s^2 + s23^2) + s^2*(s^2 - 2*s*s23 + s23^2 + 
+            2*s*t - 2*s23*t + 2*t^2) + 2*Q^2*s*(s23*(-s23 + t) + 
+            s*(s23 + t))))/(24*Pi^5*s^2*(s - s23)^2*(Q^2 + s - s23 + t)*
+         (Q^2*s23 + s*t)) + (g^2*(s23^2 + t^2)*
+         ((2*s^2 - 2*s*(s23 - t) + (s23 - t)^2)*t^2 + Q^4*(s23^2 + t^2) + 
+          2*Q^2*t*(s23*(-s23 + t) + s*(s23 + t))))/(24*Pi^5*(s23 - t)^2*t^2*
+         (Q^2 + s - s23 + t)*(Q^2*s23 + s*t)))/\[Epsilon] + 
+     (g^2*(s^2 + s23^2)*(-Q^4 - 2*Q^2*s - s^2 - 
+        ((Q^4*(s^2 + s23^2) + s^2*(s^2 - 2*s*s23 + s23^2 + 2*s*t - 2*s23*t + 
+             2*t^2) + 2*Q^2*s*(s23*(-s23 + t) + s*(s23 + t)))*
+          (EulerGamma - Log[4*Pi]))/(s - s23)^2))/
+      (24*Pi^5*s^2*(Q^2 + s - s23 + t)*(Q^2*s23 + s*t)) - 
+     (g^2*(s23^2 + t^2)*(t^2*(2*s^2*(1 + EulerGamma - Log[4*Pi]) - 
+          2*s*(s23 - t)*(1 + EulerGamma - Log[4*Pi]) + 
+          (s23 - t)^2*(2 + EulerGamma - Log[4*Pi])) + 
+        Q^4*(-2*s23*t + s23^2*(2 + EulerGamma - Log[4*Pi]) + 
+          t^2*(2 + EulerGamma - Log[4*Pi])) + 
+        2*Q^2*t*(s*(s23 + t)*(1 + EulerGamma - Log[4*Pi]) - 
+          (s23 - t)*(EulerGamma*s23 + t - s23*Log[4*Pi]))))/
+      (24*Pi^5*(s23 - t)^2*t^2*(Q^2 + s - s23 + t)*(Q^2*s23 + s*t))
+subtractionpiece = 
+    ((g^2*(s^2 + s23^2)*(Q^4*(s^2 + s23^2) + s^2*(s^2 - 2*s*s23 + s23^2 + 
+            2*s*t - 2*s23*t + 2*t^2) + 2*Q^2*s*(s23*(-s23 + t) + 
+            s*(s23 + t))))/(24*Pi^5*s^2*(s - s23)^2*(Q^2 + s - s23 + t)*
+         (Q^2*s23 + s*t)) + (g^2*(s23^2 + t^2)*
+         ((2*s^2 - 2*s*(s23 - t) + (s23 - t)^2)*t^2 + Q^4*(s23^2 + t^2) + 
+          2*Q^2*t*(s23*(-s23 + t) + s*(s23 + t))))/(24*Pi^5*(s23 - t)^2*t^2*
+         (Q^2 + s - s23 + t)*(Q^2*s23 + s*t)))/\[Epsilon] + 
+     (g^2*(s^2 + s23^2)*(-Q^4 - 2*Q^2*s - s^2 - 
+        ((Q^4*(s^2 + s23^2) + s^2*(s^2 - 2*s*s23 + s23^2 + 2*s*t - 2*s23*t + 
+             2*t^2) + 2*Q^2*s*(s23*(-s23 + t) + s*(s23 + t)))*
+          (EulerGamma - Log[4*Pi]))/(s - s23)^2))/
+      (24*Pi^5*s^2*(Q^2 + s - s23 + t)*(Q^2*s23 + s*t)) - 
+     (g^2*(s23^2 + t^2)*(t^2*(2*s^2*(1 + EulerGamma - Log[4*Pi]) - 
+          2*s*(s23 - t)*(1 + EulerGamma - Log[4*Pi]) + 
+          (s23 - t)^2*(2 + EulerGamma - Log[4*Pi])) + 
+        Q^4*(-2*s23*t + s23^2*(2 + EulerGamma - Log[4*Pi]) + 
+          t^2*(2 + EulerGamma - Log[4*Pi])) + 
+        2*Q^2*t*(s*(s23 + t)*(1 + EulerGamma - Log[4*Pi]) - 
+          (s23 - t)*(EulerGamma*s23 + t - s23*Log[4*Pi]))))/
+      (24*Pi^5*(s23 - t)^2*t^2*(Q^2 + s - s23 + t)*(Q^2*s23 + s*t))
+subtractionpiece = 
+    ((g^2*(s^2 + s23^2)*(Q^4*(s^2 + s23^2) + s^2*(s^2 - 2*s*s23 + s23^2 + 
+            2*s*t - 2*s23*t + 2*t^2) + 2*Q^2*s*(s23*(-s23 + t) + 
+            s*(s23 + t))))/(24*Pi^5*s^2*(s - s23)^2*(Q^2 + s - s23 + t)*
+         (Q^2*s23 + s*t)) + (g^2*(s23^2 + t^2)*
+         ((2*s^2 - 2*s*(s23 - t) + (s23 - t)^2)*t^2 + Q^4*(s23^2 + t^2) + 
+          2*Q^2*t*(s23*(-s23 + t) + s*(s23 + t))))/(24*Pi^5*(s23 - t)^2*t^2*
+         (Q^2 + s - s23 + t)*(Q^2*s23 + s*t)))/\[Epsilon] + 
+     (g^2*(s^2 + s23^2)*(-Q^4 - 2*Q^2*s - s^2 - 
+        ((Q^4*(s^2 + s23^2) + s^2*(s^2 - 2*s*s23 + s23^2 + 2*s*t - 2*s23*t + 
+             2*t^2) + 2*Q^2*s*(s23*(-s23 + t) + s*(s23 + t)))*
+          (EulerGamma - Log[4*Pi]))/(s - s23)^2))/
+      (24*Pi^5*s^2*(Q^2 + s - s23 + t)*(Q^2*s23 + s*t)) - 
+     (g^2*(s23^2 + t^2)*(t^2*(2*s^2*(1 + EulerGamma - Log[4*Pi]) - 
+          2*s*(s23 - t)*(1 + EulerGamma - Log[4*Pi]) + 
+          (s23 - t)^2*(2 + EulerGamma - Log[4*Pi])) + 
+        Q^4*(-2*s23*t + s23^2*(2 + EulerGamma - Log[4*Pi]) + 
+          t^2*(2 + EulerGamma - Log[4*Pi])) + 
+        2*Q^2*t*(s*(s23 + t)*(1 + EulerGamma - Log[4*Pi]) - 
+          (s23 - t)*(EulerGamma*s23 + t - s23*Log[4*Pi]))))/
+      (24*Pi^5*(s23 - t)^2*t^2*(Q^2 + s - s23 + t)*(Q^2*s23 + s*t))

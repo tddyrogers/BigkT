@@ -1,0 +1,18 @@
+subtractionpiece = -(g^2*(Q^2 + s - s23 + t)*(s23^2 + t^2)*
+        (1 + EulerGamma - Log[4*Pi]))/(96*Pi^5*t^2*(-s23 + t)) - 
+     (g^2*(Q^2*s23 + s*t)*(-1 + EulerGamma - Log[4*Pi])*
+       (36*s23*(s23^2 - 2*s23*t + 2*t^2) + 36*(s23 - t)^2*t^2*
+         Plus1B[B, s23] + (s23 - t)^2*t^2*(33 + 36*Log[-(B/t)] - 
+          2*Subscript[n, f])*\[Delta][s23]))/(384*Pi^5*(s23 - t)*t^4) + 
+     (g^2*s*(1 - EulerGamma + Log[4*Pi])*((3*s*\[Delta][s23])/2 + 
+        s*(1 + (-1 + s23/s)^2)*(Plus1B[B, s23] + Log[B/s]*\[Delta][s23])))/
+      (48*Pi^5*(-s + s23)) + ((g^2*(Q^2 + s - s23 + t)*(s23^2 + t^2))/
+        (96*Pi^5*t^2*(-s23 + t)) + (g^2*(Q^2*s23 + s*t)*
+         (36*s23*(s23^2 - 2*s23*t + 2*t^2) + 36*(s23 - t)^2*t^2*
+           Plus1B[B, s23] + (s23 - t)^2*t^2*(33 + 36*Log[-(B/t)] - 
+            2*Subscript[n, f])*\[Delta][s23]))/(384*Pi^5*(s23 - t)*t^4) + 
+       (g^2*s*((3*s*\[Delta][s23])/2 + s*(1 + (-1 + s23/s)^2)*
+           (Plus1B[B, s23] + Log[B/s]*\[Delta][s23])))/(48*Pi^5*(-s + s23)))/
+      \[Epsilon]
+ 
+Attributes[Subscript] = {NHoldRest}

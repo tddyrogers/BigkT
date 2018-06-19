@@ -1,0 +1,28 @@
+counterpiece = -(g^2*(Q^4 + s^2 + 2*Q^2*t + 2*s*t + 2*t^2)*
+        (-33 + 2*Subscript[n, f]))/(192*Pi^5*t*(Q^2 + s + t)*\[Epsilon]) + 
+     (g^2*(Q^4 + 2*Q^2*s + s^2 + (-Q^4 - s^2 - 2*Q^2*t - 2*s*t - 2*t^2)*
+         Subscript[C, MSB])*(-33 + 2*Subscript[n, f]))/
+      (192*Pi^5*t*(Q^2 + s + t))
+ 
+Attributes[Subscript] = {NHoldRest}
+counterpiece = -(g^2*(Q^4 + s^2 + 2*Q^2*t + 2*s*t + 2*t^2)*
+        (-33 + 2*Subscript[n, f]))/(384*Pi^5*t*(Q^2 + s + t)*\[Epsilon]) + 
+     (g^2*(Q^4 + 2*Q^2*s + s^2 + (-Q^4 - s^2 - 2*Q^2*t - 2*s*t - 2*t^2)*
+         Subscript[C, MSB])*(-33 + 2*Subscript[n, f]))/
+      (384*Pi^5*t*(Q^2 + s + t))
+ 
+Attributes[Subscript] = {NHoldRest}
+counterpiece = (g^2*(Q^4 + s^2 + 2*Q^2*t + 2*s*t + 2*t^2)*
+       (33 - 2*Subscript[n, f]))/(384*Pi^5*t*(Q^2 + s + t)*\[Epsilon]) + 
+     (g^2*(-Q^4 - 2*Q^2*s - s^2 + (-Q^4 - s^2 - 2*Q^2*t - 2*s*t - 2*t^2)*
+         (EulerGamma - Log[4*Pi]))*(33 - 2*Subscript[n, f]))/
+      (384*Pi^5*t*(Q^2 + s + t))
+ 
+Attributes[Subscript] = {NHoldRest}
+counterpiece = (g^2*(Q^4 + s^2 + 2*Q^2*t + 2*s*t + 2*t^2)*
+       (33 - 2*Subscript[n, f]))/(384*Pi^5*t*(Q^2 + s + t)*\[Epsilon]) + 
+     (g^2*(-Q^4 - 2*Q^2*s - s^2 + (-Q^4 - s^2 - 2*Q^2*t - 2*s*t - 2*t^2)*
+         (EulerGamma - Log[4*Pi]))*(33 - 2*Subscript[n, f]))/
+      (384*Pi^5*t*(Q^2 + s + t))
+ 
+Attributes[Subscript] = {NHoldRest}
