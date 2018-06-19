@@ -1,5 +1,0 @@
-subtractionpiece = (-(g^2*(s^2 + s23^2))/(24*Pi^5*(s - s23)^2) - 
-       (g^2*(s23^2 + t^2))/(48*Pi^5*t^2))/\[Epsilon] + 
-     (g^2*(s^2 + s23^2)*(-1 + EulerGamma - Log[4*Pi]))/
-      (24*Pi^5*(s - s23)^2) + (g^2*(s23^2 + t^2)*(1 + EulerGamma - 
-        Log[4*Pi]))/(48*Pi^5*t^2)
