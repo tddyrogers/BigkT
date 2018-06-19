@@ -1,0 +1,2708 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    107089,       2700]
+NotebookOptionsPosition[    105647,       2650]
+NotebookOutlinePosition[    105986,       2665]
+CellTagsIndexPosition[    105943,       2662]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.727798810431416*^9, 3.727798810432816*^9}, {
+  3.72916149836666*^9, 3.7291614989184103`*^9}},
+ ExpressionUUID -> "0bc9dd18-247f-4ca5-a258-bfbd60faa7e7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"<<", "\"\<mdata/real-1.mx\>\""}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"<<", "\"\<mdata/virtual-1.mx\>\""}], ";"}], "\n", 
+ RowBox[{"<<", "\"\<mdata/subtraction-1.mx\>\""}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "\"\<mdata/counter-1.mx\>\""}]}], "Input",
+ CellChangeTimes->{{3.727798829526943*^9, 3.727798829528243*^9}, {
+   3.727801093269595*^9, 3.727801095648934*^9}, {3.727801503447254*^9, 
+   3.727801508809917*^9}, {3.727801661104344*^9, 3.7278016825868273`*^9}, {
+   3.727801716661211*^9, 3.727801730180964*^9}, {3.729157538353188*^9, 
+   3.729157545850621*^9}, {3.729158130375836*^9, 3.7291581755727787`*^9}, 
+   3.7291634467764177`*^9, {3.729163620043729*^9, 3.729163632269869*^9}, {
+   3.729163668399888*^9, 3.729163668691115*^9}},
+ ExpressionUUID -> "d5576be8-b93a-4fe6-bfd2-5b572d3934f2"],
+
+Cell[BoxData[
+ RowBox[{"{", "NHoldRest", "}"}]], "Output",
+ CellChangeTimes->{
+  3.727801732394082*^9, 3.7282308486271963`*^9, 3.72823088696791*^9, 
+   3.728230923936179*^9, {3.728230978991762*^9, 3.728230998615574*^9}, 
+   3.728832705429138*^9, 3.7290887165946293`*^9, 3.7290899079259787`*^9, {
+   3.7290907279465313`*^9, 3.7290907995580683`*^9}, {3.729090834798929*^9, 
+   3.729090861707691*^9}, 3.729090895991254*^9, {3.729090955746147*^9, 
+   3.729090983328722*^9}, 3.7291574847943687`*^9, 3.729157551701501*^9, {
+   3.729158142165329*^9, 3.729158179118327*^9}, 3.72915830237181*^9, 
+   3.729158382555938*^9, 3.729158589352241*^9, 3.729160688836994*^9, 
+   3.729161500311228*^9, 3.7291634521094112`*^9, 3.7291636228852673`*^9, {
+   3.7291636640760202`*^9, 3.72916366933433*^9}, 3.729163839080484*^9},
+ ExpressionUUID -> "2d2496ac-2132-494b-bb3b-9ca0ad9ed180"],
+
+Cell[BoxData[
+ RowBox[{"{", "NHoldRest", "}"}]], "Output",
+ CellChangeTimes->{
+  3.727801732394082*^9, 3.7282308486271963`*^9, 3.72823088696791*^9, 
+   3.728230923936179*^9, {3.728230978991762*^9, 3.728230998615574*^9}, 
+   3.728832705429138*^9, 3.7290887165946293`*^9, 3.7290899079259787`*^9, {
+   3.7290907279465313`*^9, 3.7290907995580683`*^9}, {3.729090834798929*^9, 
+   3.729090861707691*^9}, 3.729090895991254*^9, {3.729090955746147*^9, 
+   3.729090983328722*^9}, 3.7291574847943687`*^9, 3.729157551701501*^9, {
+   3.729158142165329*^9, 3.729158179118327*^9}, 3.72915830237181*^9, 
+   3.729158382555938*^9, 3.729158589352241*^9, 3.729160688836994*^9, 
+   3.729161500311228*^9, 3.7291634521094112`*^9, 3.7291636228852673`*^9, {
+   3.7291636640760202`*^9, 3.72916366933433*^9}, 3.72916383909868*^9},
+ ExpressionUUID -> "2d2496ac-2132-494b-bb3b-9ca0ad9ed180"]
+}, Open  ]],
+
+Cell[TextData[StyleBox["Aux funcs",
+ FontSize->36,
+ FontColor->RGBColor[1, 0, 0]]], "Text",
+ CellChangeTimes->{{3.707064383386449*^9, 3.707064389871038*^9}, 
+   3.707064544082612*^9, {3.725569824282634*^9, 3.725569824734004*^9}, {
+   3.729164315539776*^9, 3.72916433467517*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"CollectLog", "[", "expr_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"rule1", ",", "rule2", ",", "a", ",", "b", ",", "c", ",", "x"}],
+       "}"}], ",", 
+     RowBox[{
+      RowBox[{"rule2", "=", 
+       RowBox[{
+        RowBox[{"Log", "[", 
+         RowBox[{"a_", "^", "x_"}], "]"}], "\[Rule]", 
+        RowBox[{"x", "*", 
+         RowBox[{"Log", "[", "a", "]"}]}]}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"rule11", "=", 
+       RowBox[{
+        RowBox[{"Log", "[", 
+         RowBox[{"a_", "*", "b_"}], "]"}], "\[Rule]", 
+        RowBox[{"HoldForm", "[", 
+         RowBox[{
+          RowBox[{"Log", "[", "a", "]"}], "+", 
+          RowBox[{"Log", "[", "b", "]"}]}], "]"}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"rule12", "=", 
+       RowBox[{
+        RowBox[{"Log", "[", 
+         RowBox[{"a_", "/", "b_"}], "]"}], "\[Rule]", 
+        RowBox[{
+         RowBox[{"Log", "[", "a", "]"}], "-", 
+         RowBox[{"Log", "[", "b", "]"}]}]}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"rule13", "=", 
+       RowBox[{
+        RowBox[{"Log", "[", 
+         RowBox[{"1", "/", "b_"}], "]"}], "\[Rule]", 
+        RowBox[{"-", 
+         RowBox[{"Log", "[", "b", "]"}]}]}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"expr", "=", 
+         RowBox[{"expr", "//", 
+          RowBox[{
+           RowBox[{"Refine", "[", 
+            RowBox[{"#", ",", 
+             RowBox[{"Assumptions", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"v", "<", "1"}], ",", 
+                RowBox[{"v", ">", "0"}], ",", 
+                RowBox[{"s", ">", "0"}], ",", 
+                RowBox[{"\[Mu]", ">", "0"}]}], "}"}]}]}], "]"}], "&"}]}]}], 
+        ";"}], "*)"}], 
+      RowBox[{"(*", 
+       RowBox[{"expr", "//.", "rule11"}], "*)"}], 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"ReleaseHold", "[", 
+                RowBox[{"expr", "/.", 
+                 RowBox[{
+                  RowBox[{"Log", "[", "c_", "]"}], "\[Rule]", 
+                  RowBox[{"Log", "[", 
+                   RowBox[{"HoldForm", "[", 
+                    RowBox[{"Factor", "[", "c", "]"}], "]"}], "]"}]}]}], 
+                "]"}], "/.", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", "v"}], "\[Rule]", 
+                RowBox[{"-", 
+                 RowBox[{"HoldForm", "[", 
+                  RowBox[{"(", 
+                   RowBox[{"1", "-", "v"}], ")"}], "]"}]}]}]}], "//.", 
+              "rule11"}], "//.", "rule12"}], "//.", "rule13"}], "//.", 
+           "rule2"}], "//", "ReleaseHold"}], "//", "ReleaseHold"}], "//", 
+        "ReleaseHold"}], "//", "ReleaseHold"}]}]}], 
+    RowBox[{"(*", 
+     RowBox[{"//", 
+      RowBox[{
+       RowBox[{"Refine", "[", 
+        RowBox[{"#", ",", 
+         RowBox[{"Assumptions", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"v", "<", "1"}], ",", 
+            RowBox[{"v", ">", "0"}], ",", 
+            RowBox[{"s", ">", "0"}], ",", 
+            RowBox[{"\[Mu]", ">", "0"}]}], "}"}]}]}], "]"}], "&"}]}], "*)"}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"GetSinglePole", "[", "expr_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"xsc1", ",", "xsc2", ",", "xsc3"}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"xsc1", "=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"Expand", "[", 
+           RowBox[{
+            RowBox[{"Select", "[", 
+             RowBox[{
+              RowBox[{"Expand", "[", "expr", "]"}], ",", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"MatchQ", "[", 
+                 RowBox[{"#", ",", 
+                  RowBox[{
+                   RowBox[{"\[Epsilon]", "^", 
+                    RowBox[{"-", "1"}]}], "__"}]}], "]"}], "&&", 
+                RowBox[{"MatchQ", "[", 
+                 RowBox[{"#", ",", 
+                  RowBox[{
+                   RowBox[{"\[Delta]", "[", "s23", "]"}], "__"}]}], "]"}], "&&", 
+                RowBox[{"FreeQ", "[", 
+                 RowBox[{"#", ",", 
+                  RowBox[{
+                   RowBox[{"s23", "^", 
+                    RowBox[{"-", "1"}]}], "__"}]}], "]"}]}], "&"}]}], "]"}], 
+            "+", 
+            RowBox[{"Simplify", "[", 
+             RowBox[{"Select", "[", 
+              RowBox[{
+               RowBox[{"Expand", "[", "expr", "]"}], ",", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"MatchQ", "[", 
+                  RowBox[{"#", ",", 
+                   RowBox[{
+                    RowBox[{"\[Epsilon]", "^", 
+                    RowBox[{"-", "1"}]}], "__"}]}], "]"}], "&&", 
+                 RowBox[{"MatchQ", "[", 
+                  RowBox[{"#", ",", 
+                   RowBox[{
+                    RowBox[{"\[Delta]", "[", "s23", "]"}], "__"}]}], "]"}], "&&", 
+                 RowBox[{"MatchQ", "[", 
+                  RowBox[{"#", ",", 
+                   RowBox[{
+                    RowBox[{"s23", "^", 
+                    RowBox[{"-", "1"}]}], "__"}]}], "]"}]}], "&"}]}], "]"}], 
+             "]"}]}], "]"}], "/.", 
+          RowBox[{"s23", "\[Rule]", "0"}]}], "//", 
+         RowBox[{
+          RowBox[{"Collect", "[", 
+           RowBox[{"#", ",", 
+            RowBox[{"{", 
+             RowBox[{"Log", "[", "__", "]"}], "}"}], ",", "Simplify"}], "]"}],
+           "&"}]}], "//", 
+        RowBox[{
+         RowBox[{"Simplify", "[", 
+          RowBox[{"#", ",", 
+           RowBox[{
+            RowBox[{"s", ">", "0"}], "&&", 
+            RowBox[{"t", "<", "0"}], "&&", 
+            RowBox[{"Q", ">", "0"}]}]}], "]"}], "&"}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+        "ignore", " ", "warnings", " ", "which", " ", "is", " ", "from", " ", 
+         "terms", " ", "like", " ", 
+         RowBox[{"1", "/", 
+          RowBox[{"(", 
+           RowBox[{"1", "+", 
+            RowBox[{"1", "/", "s23"}]}], ")"}]}], " ", "when", " ", "setting",
+          " ", "s23"}], "\[Rule]", 
+        RowBox[{
+        "0.", " ", "The", " ", "terms", " ", "are", " ", "0", " ", "in", " ", 
+         "the", " ", "limit", " ", "but", " ", "mathematica", " ", "gives", 
+         " ", "warnings", " ", "about", " ", "them"}]}], "*)"}], 
+      RowBox[{"xsc2", "=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"xsc1", "/.", 
+           RowBox[{
+            RowBox[{"Abs", "[", "a_", "]"}], "\[Rule]", "a"}]}], "/.", 
+          RowBox[{"t", "\[Rule]", 
+           RowBox[{"-", "t"}]}]}], "//", "CollectLog"}], "//", 
+        "FullSimplify"}]}], ";", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+         "1.", "It", " ", "is", " ", "easy", " ", "to", " ", "see", " ", "or",
+           " ", "check", " ", "that", " ", 
+          RowBox[{"Abs", "[", "a_", "]"}]}], "\[Rule]", 
+         RowBox[{
+          RowBox[{"a", " ", "and", " ", 
+           RowBox[{"Abs", "[", "a_", "]"}]}], "\[Rule]", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "a"}], " ", "gives", " ", "same", " ", "result", " ",
+             "due", " ", "to", " ", "the", " ", "log", " ", 
+            RowBox[{"structure", ".", "2."}], " ", "mathematica", " ", 
+            "gives", " ", "wrong", " ", "separation", " ", "for", " ", 
+            RowBox[{"Log", "[", 
+             RowBox[{"-", "ab"}], "]"}], " ", "for", " ", "logs", " ", "if", 
+            " ", "there", " ", "is", " ", "a", " ", "minus", " ", "sign", " ",
+             "in", " ", 
+            RowBox[{"it", ".", "So"}], " ", "here", " ", "I", " ", "use", " ",
+             "t"}], "\[Rule]", 
+           RowBox[{
+            RowBox[{"-", "t"}], " ", "to", " ", "remove", " ", "the", " ", 
+            "sign"}]}]}]}], ",", 
+        RowBox[{
+         RowBox[{
+         "and", " ", "in", " ", "the", " ", "end", " ", "do", " ", "t"}], 
+         "\[Rule]", 
+         RowBox[{
+          RowBox[{"-", "t"}], " ", 
+          RowBox[{"again", "."}]}]}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"xsc3", "=", 
+       RowBox[{
+        RowBox[{"xsc2", "/.", 
+         RowBox[{"t", "\[Rule]", 
+          RowBox[{"-", "t"}]}]}], "//", "Simplify"}]}]}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.7291636358595552`*^9, 3.729163648890929*^9}, {
+  3.729163684646055*^9, 3.729163725240406*^9}, {3.729164043722377*^9, 
+  3.7291640503192368`*^9}, {3.729164279556141*^9, 3.7291643013583603`*^9}}],
+
+Cell[TextData[StyleBox["Combine all",
+ FontSize->36,
+ FontColor->RGBColor[1, 0, 0]]], "Text",
+ CellChangeTimes->{{3.707064383386449*^9, 3.707064389871038*^9}, 
+   3.707064544082612*^9, {3.725569824282634*^9, 3.725569824734004*^9}, {
+   3.729164315539776*^9, 3.729164318816777*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"total", "=", "0"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"total", "+=", "realpiece"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"total", "+=", "counterpiece"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"total", "-=", "subtractionpiece"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"total", "+=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"virtualpiece", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "+", 
+      RowBox[{"virtualpiece", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], "+", 
+      RowBox[{"virtualpiece", "[", 
+       RowBox[{"[", "3", "]"}], "]"}], "+", 
+      RowBox[{"virtualpiece", "[", 
+       RowBox[{"[", "4", "]"}], "]"}]}], ")"}], "*", 
+    RowBox[{"\[Delta]", "[", "s23", "]"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.727801345756215*^9, 3.727801345758049*^9}, {
+  3.727801527449692*^9, 3.727801538745658*^9}, {3.727801581802965*^9, 
+  3.7278015907773123`*^9}, {3.727801741464023*^9, 3.727801751823477*^9}, {
+  3.727801879897357*^9, 3.7278018817218037`*^9}, {3.72780402395794*^9, 
+  3.727804030322817*^9}, {3.7290907014771557`*^9, 3.7290907969699574`*^9}, {
+  3.729090831080699*^9, 3.729090893300352*^9}, {3.729090950235976*^9, 
+  3.729090953027649*^9}, {3.72915812102798*^9, 3.729158124812347*^9}, {
+  3.729158284170504*^9, 3.729158297569805*^9}, {3.72915833086508*^9, 
+  3.729158334283182*^9}, {3.729161098423128*^9, 3.7291610986507893`*^9}, {
+  3.729161311395528*^9, 3.729161311943941*^9}},
+ ExpressionUUID -> "ef56d313-3480-4aa8-b6b9-f5592e570c4e"],
+
+Cell[TextData[StyleBox["Analyze delta",
+ FontSize->36,
+ FontColor->RGBColor[1, 0, 0]]], "Text",
+ CellChangeTimes->{{3.707064383386449*^9, 3.707064389871038*^9}, 
+   3.707064544082612*^9, {3.725569824282634*^9, 3.725569824734004*^9}, {
+   3.729164315539776*^9, 3.729164356692225*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"delta", " ", "=", 
+   RowBox[{"Coefficient", "[", 
+    RowBox[{"total", ",", 
+     RowBox[{"\[Delta]", "[", "s23", "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.729159100717474*^9, 3.729159108253592*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"double", "=", 
+  RowBox[{
+   RowBox[{"Limit", "[", 
+    RowBox[{
+     RowBox[{"Coefficient", "[", 
+      RowBox[{"delta", ",", 
+       RowBox[{"1", "/", 
+        RowBox[{"\[Epsilon]", "^", "2"}]}]}], "]"}], ",", 
+     RowBox[{"s23", "\[Rule]", "0"}]}], "]"}], "//", "Simplify"}]}]], "Input",\
+
+ CellChangeTimes->{{3.729158656143179*^9, 3.7291587348708878`*^9}, {
+  3.7291591286291924`*^9, 3.7291591289097757`*^9}, {3.7291592706991568`*^9, 
+  3.729159300313828*^9}, {3.729159344043256*^9, 3.729159355078289*^9}, {
+  3.729163033521954*^9, 3.7291630422571507`*^9}, {3.7291637966644983`*^9, 
+  3.7291638175148163`*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{
+  3.729159130749311*^9, {3.72915927124298*^9, 3.729159300861322*^9}, 
+   3.729159346080834*^9, 3.7291605533554077`*^9, 3.7291611039558697`*^9, 
+   3.729161505664007*^9, 3.729163043028923*^9, 3.729163734803316*^9, {
+   3.729163798274481*^9, 3.729163845189988*^9}, 3.7291643744707336`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"single", "=", 
+  RowBox[{"GetSinglePole", "[", 
+   RowBox[{
+    RowBox[{"Coefficient", "[", 
+     RowBox[{"delta", ",", 
+      RowBox[{"1", "/", "\[Epsilon]"}]}], "]"}], "/.", 
+    RowBox[{"E4Pi", "\[Rule]", " ", 
+     RowBox[{"EulerGamma", "-", 
+      RowBox[{"Log", "[", 
+       RowBox[{"4", "Pi"}], "]"}]}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.729163270032631*^9, 3.729163330606964*^9}, {
+  3.729163469617045*^9, 3.729163522794381*^9}, {3.729163761739025*^9, 
+  3.729163772378296*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{{3.729163319326892*^9, 3.7291633319023037`*^9}, {
+   3.729163474492738*^9, 3.729163518759581*^9}, 3.72916358285852*^9, {
+   3.729163776423211*^9, 3.72916384716227*^9}, 3.7291643797095127`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"finite", "=", 
+   RowBox[{"Limit", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"delta", "/.", 
+       RowBox[{"\[Epsilon]", "\[Rule]", 
+        RowBox[{"1", "/", "\[Lambda]"}]}]}], "/.", 
+      RowBox[{"\[Lambda]", "\[Rule]", "0"}]}], " ", ",", 
+     RowBox[{"s23", "\[Rule]", "0"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.729163969178925*^9, 3.7291640038166*^9}, {
+  3.729164079583852*^9, 3.729164162016841*^9}, {3.7291641996475573`*^9, 
+  3.729164227390862*^9}, {3.7291644167625647`*^9, 3.729164464081154*^9}, {
+  3.729164494215654*^9, 3.729164501486002*^9}, {3.729164620571526*^9, 
+  3.729164631213011*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Power", "::", "infy"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Infinite expression \[NoBreak]\\!\\(1\\/0\\)\[NoBreak] \
+encountered. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/infy\\\", ButtonNote -> \
+\\\"Power::infy\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.729164501898595*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Power", "::", "infy"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Infinite expression \[NoBreak]\\!\\(1\\/0\\)\[NoBreak] \
+encountered. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/infy\\\", ButtonNote -> \
+\\\"Power::infy\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.729164501953285*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   FrameBox[GridBox[{
+      {
+       ItemBox[
+        TagBox[
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{
+             SuperscriptBox["g", "2"], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["Q", "4"], "+", 
+               RowBox[{"3", " ", 
+                SuperscriptBox["s", "2"]}], "+", 
+               RowBox[{"2", " ", 
+                SuperscriptBox["Q", "2"], " ", "t"}], "+", 
+               RowBox[{"2", " ", "s", " ", "t"}], "+", 
+               RowBox[{"2", " ", 
+                SuperscriptBox["t", "2"]}]}], ")"}], " ", 
+             SuperscriptBox[
+              RowBox[{"Log", "[", 
+               FractionBox[
+                RowBox[{
+                 SuperscriptBox["Q", "2"], "+", "s"}], "s"], "]"}], "2"]}], 
+            RowBox[{"192", " ", 
+             SuperscriptBox["\[Pi]", "5"], " ", "t", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["Q", "2"], "+", "s", "+", "t"}], ")"}]}]]}], 
+          "+", 
+          FractionBox[
+           RowBox[{
+            SuperscriptBox["g", "2"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["Q", "4"], "+", 
+              SuperscriptBox["s", "2"], "+", 
+              RowBox[{"2", " ", 
+               SuperscriptBox["Q", "2"], " ", "t"}], "+", 
+              SuperscriptBox["t", "2"]}], ")"}], " ", 
+            SuperscriptBox[
+             RowBox[{"Log", "[", 
+              RowBox[{"-", 
+               FractionBox["s", "t"]}], "]"}], "2"]}], 
+           RowBox[{"192", " ", 
+            SuperscriptBox["\[Pi]", "5"], " ", "t", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["Q", "2"], "+", "s", "+", "t"}], ")"}]}]], "+", 
+          FractionBox[
+           RowBox[{
+            SuperscriptBox["g", "2"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"2", " ", 
+               SuperscriptBox["s", "2"]}], "+", 
+              RowBox[{"2", " ", "s", " ", "t"}], "+", 
+              SuperscriptBox["t", "2"]}], ")"}], " ", 
+            SuperscriptBox[
+             RowBox[{"Log", "[", 
+              FractionBox["s", 
+               RowBox[{
+                SuperscriptBox["Q", "2"], "+", "s", "+", "t"}]], "]"}], 
+             "2"]}], 
+           RowBox[{"192", " ", 
+            SuperscriptBox["\[Pi]", "5"], " ", "t", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["Q", "2"], "+", "s", "+", "t"}], ")"}]}]], "+", 
+          TemplateBox[{"64"},
+           "OutputSizeLimit`Skeleton",
+           DisplayFunction->(FrameBox[
+             RowBox[{"\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+             Background -> GrayLevel[0.75], 
+             BaseStyle -> {
+              "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+               ShowStringCharacters -> False}, BaselinePosition -> Baseline, 
+             ContentPadding -> False, FrameMargins -> 1, FrameStyle -> 
+             GrayLevel[0.75], RoundingRadius -> 7]& )], "+", 
+          FractionBox[
+           RowBox[{
+            SuperscriptBox["g", "2"], " ", 
+            RowBox[{"(", 
+             TemplateBox[{"1"},
+              "OutputSizeLimit`Skeleton",
+              DisplayFunction->(FrameBox[
+                
+                RowBox[{
+                 "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                Background -> GrayLevel[0.75], 
+                BaseStyle -> {
+                 "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                  ShowStringCharacters -> False}, BaselinePosition -> 
+                Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+             ")"}]}], 
+           RowBox[{"9", " ", "t", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["Q", "2"], "+", "s", "+", "t"}], ")"}]}]], "+", 
+          FractionBox[
+           RowBox[{
+            SuperscriptBox["g", "2"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              FractionBox[
+               RowBox[{"3", " ", 
+                RowBox[{"(", 
+                 TemplateBox[{"1"},
+                  "OutputSizeLimit`Skeleton",
+                  DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                 ")"}], " ", 
+                RowBox[{"Log", "[", "B", "]"}], " ", 
+                RowBox[{"Log", "[", 
+                 FractionBox[
+                  TemplateBox[{"1"},
+                   "OutputSizeLimit`Skeleton",
+                   DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                  TemplateBox[{"1"},
+                   "OutputSizeLimit`Skeleton",
+                   DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )]], 
+                 "]"}]}], 
+               RowBox[{"512", " ", 
+                SuperscriptBox["\[Pi]", "5"]}]], "+", 
+              RowBox[{"6", " ", 
+               RowBox[{"Log", "[", 
+                FractionBox[
+                 TemplateBox[{"1"},
+                  "OutputSizeLimit`Skeleton",
+                  DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                 TemplateBox[{"1"},
+                  "OutputSizeLimit`Skeleton",
+                  DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )]], 
+                "]"}], " ", 
+               RowBox[{"(", 
+                TemplateBox[{"1"},
+                 "OutputSizeLimit`Skeleton",
+                 DisplayFunction->(FrameBox[
+                   
+                   RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                   Background -> GrayLevel[0.75], 
+                   BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                   Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                   FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                ")"}]}], "-", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"(", 
+                 TemplateBox[{"1"},
+                  "OutputSizeLimit`Skeleton",
+                  DisplayFunction->(FrameBox[
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                 ")"}], " ", 
+                RowBox[{"(", 
+                 TemplateBox[{"1"},
+                  "OutputSizeLimit`Skeleton",
+                  DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                 ")"}]}], 
+               RowBox[{"1024", " ", 
+                SuperscriptBox["\[Pi]", "5"]}]]}], ")"}]}], 
+           RowBox[{"9", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", 
+               SuperscriptBox["Q", "2"]}], "-", "s", "-", "t"}], ")"}], " ", 
+            "t", " ", 
+            SqrtBox[
+             RowBox[{
+              SuperscriptBox["s", "2"], "+", 
+              RowBox[{"2", " ", "s", " ", "t"}], "+", 
+              SuperscriptBox["t", "2"]}]]}]], "+", 
+          FractionBox[
+           RowBox[{
+            SuperscriptBox["g", "2"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              TemplateBox[{"6"},
+               "OutputSizeLimit`Skeleton",
+               DisplayFunction->(FrameBox[
+                 
+                 RowBox[{
+                  "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                 Background -> GrayLevel[0.75], 
+                 BaseStyle -> {
+                  "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                   ShowStringCharacters -> False}, BaselinePosition -> 
+                 Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                 FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  SuperscriptBox["Q", "4"], "+", 
+                  SuperscriptBox["s", "2"], "+", 
+                  RowBox[{"2", " ", 
+                   SuperscriptBox["Q", "2"], " ", "t"}], "+", 
+                  RowBox[{"2", " ", "s", " ", "t"}], "+", 
+                  RowBox[{"2", " ", 
+                   SuperscriptBox["t", "2"]}]}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  TemplateBox[{"8"},
+                   "OutputSizeLimit`Skeleton",
+                   DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                  "+", 
+                  RowBox[{"12", " ", 
+                   RowBox[{"PolyLog", "[", 
+                    TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton",
+                    DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                    "]"}]}]}], ")"}]}], 
+               RowBox[{"128", " ", 
+                SuperscriptBox["\[Pi]", "5"]}]]}], ")"}]}], 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", 
+               SuperscriptBox["Q", "2"]}], "-", "s", "-", "t"}], ")"}], " ", 
+            "t"}]], "-", 
+          FractionBox[
+           RowBox[{
+            SuperscriptBox["g", "2"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", 
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{
+                  SuperscriptBox["Q", "2"], "+", "s"}], ")"}], "2"]}], "-", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 SuperscriptBox["Q", "4"], "+", 
+                 SuperscriptBox["s", "2"], "+", 
+                 RowBox[{"2", " ", 
+                  SuperscriptBox["Q", "2"], " ", "t"}], "+", 
+                 RowBox[{"2", " ", "s", " ", "t"}], "+", 
+                 RowBox[{"2", " ", 
+                  SuperscriptBox["t", "2"]}]}], ")"}], " ", 
+               RowBox[{"(", 
+                RowBox[{"EulerGamma", "-", 
+                 RowBox[{"Log", "[", 
+                  RowBox[{"4", " ", "\[Pi]"}], "]"}], "+", 
+                 RowBox[{"Log", "[", 
+                  FractionBox[
+                   SuperscriptBox["M", "2"], 
+                   SuperscriptBox["\[Mu]", "2"]], "]"}]}], ")"}]}]}], ")"}], 
+            " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"3", " ", 
+               SuperscriptBox["t", "4"], " ", 
+               RowBox[{"(", 
+                RowBox[{"11", "+", 
+                 RowBox[{"12", " ", 
+                  RowBox[{"Log", "[", 
+                   RowBox[{"-", 
+                    FractionBox["B", "t"]}], "]"}]}]}], ")"}]}], "-", 
+              RowBox[{"2", " ", 
+               SuperscriptBox["t", "4"], " ", 
+               SubscriptBox["n", "f"]}]}], ")"}]}], 
+           RowBox[{"192", " ", 
+            SuperscriptBox["\[Pi]", "5"], " ", 
+            SuperscriptBox["t", "5"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["Q", "2"], "+", "s", "+", "t"}], ")"}]}]]}],
+         Short[#, 5]& ],
+        BaseStyle->{Deployed -> False},
+        StripOnInput->False]},
+      {GridBox[{
+         {
+          TagBox[
+           TooltipBox[
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource[
+                "FEStrings", "sizeBriefExplanation"], StandardForm],
+               ImageSizeCache->{68., {2., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarCategory",
+             StripOnInput->False],
+            StyleBox[
+             DynamicBox[
+              ToBoxes[
+               FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"], 
+               StandardForm]], DynamicUpdating -> True, StripOnInput -> 
+             False]],
+           Annotation[#, 
+            Style[
+             Dynamic[
+              FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"]], 
+             DynamicUpdating -> True], "Tooltip"]& ], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm],
+               ImageSizeCache->{64., {0., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            Identity, 44, 24911473867688665890, 5/2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm],
+               ImageSizeCache->{70., {0., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            Identity, 44, 24911473867688665890, 5 2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm],
+               ImageSizeCache->{54., {0., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            Identity, 44, 24911473867688665890, Infinity],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm],
+               ImageSizeCache->{94., {0., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           ButtonFunction:>FrontEndExecute[{
+              FrontEnd`SetOptions[
+              FrontEnd`$FrontEnd, 
+               FrontEnd`PreferencesSettings -> {"Page" -> "Evaluation"}], 
+              FrontEnd`FrontEndToken["PreferencesDialog"]}],
+           Evaluator->None,
+           Method->"Preemptive"]}
+        },
+        AutoDelete->False,
+        FrameStyle->GrayLevel[0.85],
+        GridBoxDividers->{"Columns" -> {False, {True}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{2}}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxDividers->{
+      "Columns" -> {{False}}, "ColumnsIndexed" -> {}, "Rows" -> {{False}}, 
+       "RowsIndexed" -> {}},
+     GridBoxItemSize->{
+      "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], 
+         Offset[1.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Background->RGBColor[0.9657, 0.9753, 0.9802],
+    FrameMargins->{{12, 12}, {0, 15}},
+    FrameStyle->GrayLevel[0.85],
+    RoundingRadius->5,
+    StripOnInput->False],
+   Deploy,
+   DefaultBaseStyle->"Deploy"],
+  Out[44]]], "Output",
+ CellChangeTimes->{{3.7291644332907457`*^9, 3.729164437007008*^9}, {
+  3.72916449182061*^9, 3.729164502075768*^9}}]
+}, Open  ]],
+
+Cell[TextData[StyleBox["Junk",
+ FontSize->36,
+ FontColor->RGBColor[1, 0, 0]]], "Text",
+ CellChangeTimes->{{3.707064383386449*^9, 3.707064389871038*^9}, 
+   3.707064544082612*^9, {3.725569824282634*^9, 3.725569824734004*^9}, {
+   3.729164315539776*^9, 3.729164356692225*^9}, {3.729164614008133*^9, 
+   3.729164614789892*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7291642230395937`*^9, 3.729164223978476*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"P2", "=", " ", 
+   RowBox[{"Coefficient", "[", 
+    RowBox[{"total", ",", 
+     RowBox[{"Plus2B", "[", 
+      RowBox[{"B", ",", "s23"}], "]"}]}], "]"}]}], 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.7291639117551937`*^9, 3.729163943431385*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["g", "2"], " ", "s", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "4"}], " ", 
+        SuperscriptBox["Q", "4"]}], "+", 
+       RowBox[{"4", " ", 
+        SuperscriptBox["s", "2"]}]}], ")"}]}], 
+    RowBox[{"768", " ", 
+     SuperscriptBox["\[Pi]", "5"], " ", 
+     RowBox[{"(", 
+      RowBox[{"s", "-", "s23"}], ")"}], " ", "t", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["Q", "2"], "+", "s", "-", "s23", "+", "t"}], ")"}]}]]}],
+   "-", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["g", "2"], " ", "s", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Q", "2"], "+", "s", "+", "t"}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", 
+        SuperscriptBox["Q", "2"]}], " ", "s23"}], "-", 
+      RowBox[{"s", " ", "t"}]}], ")"}]}], 
+   RowBox[{"192", " ", 
+    SuperscriptBox["\[Pi]", "5"], " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"s", "-", "s23"}], ")"}], "2"], " ", "t", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Q", "2"], "+", "s", "-", "s23", "+", "t"}], ")"}]}]], 
+  "-", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["g", "2"], " ", "s", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", 
+        SuperscriptBox["Q", "2"]}], " ", "s"}], "-", 
+      SuperscriptBox["s", "2"], "+", 
+      RowBox[{"s", " ", "s23"}], "-", 
+      RowBox[{"s", " ", "t"}]}], ")"}]}], 
+   RowBox[{"192", " ", 
+    SuperscriptBox["\[Pi]", "5"], " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"s", "-", "s23"}], ")"}], "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Q", "2"], "+", "s", "-", "s23", "+", "t"}], ")"}]}]], 
+  "-", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["g", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["Q", "2"], " ", "s23"}], "+", 
+      RowBox[{"s", " ", "t"}]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "8"}], " ", 
+       SuperscriptBox["Q", "4"]}], "+", 
+      RowBox[{"8", " ", 
+       SuperscriptBox["s", "2"]}], "-", 
+      RowBox[{"32", " ", 
+       SuperscriptBox["Q", "2"], " ", "t"}], "+", 
+      RowBox[{"32", " ", "s", " ", "t"}], "-", 
+      RowBox[{"24", " ", 
+       SuperscriptBox["t", "2"]}]}], ")"}]}], 
+   RowBox[{"1536", " ", 
+    SuperscriptBox["\[Pi]", "5"], " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"s23", "-", "t"}], ")"}], "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["Q", "2"]}], "-", "s", "+", "s23", "-", "t"}], ")"}], 
+    " ", "t"}]], "+", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["g", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["Q", "2"], " ", "s23"}], "+", 
+      RowBox[{"s", " ", "s23"}], "-", 
+      SuperscriptBox["s23", "2"], "+", 
+      RowBox[{"s23", " ", "t"}]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["Q", "4"]}], "-", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["Q", "2"], " ", "s"}], "-", 
+      SuperscriptBox["s", "2"], "-", 
+      RowBox[{"4", " ", 
+       SuperscriptBox["Q", "2"], " ", "t"}], "-", 
+      RowBox[{"3", " ", "s", " ", "t"}], "-", 
+      RowBox[{"3", " ", 
+       SuperscriptBox["t", "2"]}]}], ")"}]}], 
+   RowBox[{"192", " ", 
+    SuperscriptBox["\[Pi]", "5"], " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"s23", "-", "t"}], ")"}], "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["Q", "2"]}], "-", "s", "+", "s23", "-", "t"}], ")"}], 
+    " ", "t"}]], "-", 
+  FractionBox[
+   RowBox[{"3", " ", 
+    SuperscriptBox["g", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Q", "2"], "+", "s", "+", "t"}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["Q", "4"]}], "-", 
+      SuperscriptBox["s", "2"], "-", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["Q", "2"], " ", "t"}], "-", 
+      RowBox[{"2", " ", "s", " ", "t"}], "-", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["t", "2"]}]}], ")"}]}], 
+   RowBox[{"64", " ", 
+    SuperscriptBox["\[Pi]", "5"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["Q", "2"]}], "-", "s", "+", "s23", "-", "t"}], ")"}], 
+    " ", "t", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Q", "2"], "+", "s", "-", "s23", "+", "t"}], ")"}]}]], 
+  "-", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["g", "2"], " ", "s", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["Q", "4"]}], "-", 
+      SuperscriptBox["s", "2"], "-", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["Q", "2"], " ", "t"}], "-", 
+      SuperscriptBox["t", "2"]}], ")"}]}], 
+   RowBox[{"96", " ", 
+    SuperscriptBox["\[Pi]", "5"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Q", "2"], "+", "s", "-", "s23", "+", "t"}], ")"}], " ", 
+    
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["Q", "2"], " ", "s23"}], "+", 
+      RowBox[{"s", " ", "t"}]}], ")"}]}]], "+", 
+  FractionBox[
+   RowBox[{"3", " ", 
+    SuperscriptBox["g", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "8"}], " ", 
+       SuperscriptBox["Q", "2"], " ", "s"}], "-", 
+      RowBox[{"8", " ", 
+       SuperscriptBox["s", "2"]}], "-", 
+      RowBox[{"20", " ", 
+       SuperscriptBox["Q", "2"], " ", "t"}], "-", 
+      RowBox[{"24", " ", "s", " ", "t"}], "-", 
+      RowBox[{"24", " ", 
+       SuperscriptBox["t", "2"]}]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", 
+        SuperscriptBox["Q", "2"]}], " ", "t"}], "-", 
+      RowBox[{"s", " ", "t"}], "+", 
+      RowBox[{"s23", " ", "t"}], "-", 
+      SuperscriptBox["t", "2"]}], ")"}]}], 
+   RowBox[{"512", " ", 
+    SuperscriptBox["\[Pi]", "5"], " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"s23", "-", "t"}], ")"}], "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["Q", "2"]}], "-", "s", "+", "s23", "-", "t"}], ")"}], 
+    " ", "t"}]], "+", 
+  FractionBox[
+   RowBox[{"3", " ", 
+    SuperscriptBox["g", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["Q", "2"], " ", "s23"}], "+", 
+      RowBox[{"s", " ", "s23"}], "-", 
+      SuperscriptBox["s23", "2"], "+", 
+      RowBox[{"s23", " ", "t"}]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "8"}], " ", 
+       SuperscriptBox["Q", "4"]}], "-", 
+      RowBox[{"24", " ", 
+       SuperscriptBox["Q", "2"], " ", "s"}], "-", 
+      RowBox[{"16", " ", 
+       SuperscriptBox["s", "2"]}], "-", 
+      RowBox[{"12", " ", 
+       SuperscriptBox["Q", "2"], " ", "t"}], "+", 
+      RowBox[{"8", " ", 
+       SuperscriptBox["t", "2"]}]}], ")"}]}], 
+   RowBox[{"512", " ", 
+    SuperscriptBox["\[Pi]", "5"], " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"s23", "-", "t"}], ")"}], "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["Q", "2"]}], "-", "s", "+", "s23", "-", "t"}], ")"}], 
+    " ", "t"}]], "+", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["g", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Q", "2"], "+", "s", "+", "t"}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"16", " ", 
+       SuperscriptBox["s", "2"]}], "+", 
+      RowBox[{"16", " ", "s", " ", "t"}], "+", 
+      RowBox[{"8", " ", 
+       SuperscriptBox["t", "2"]}]}], ")"}]}], 
+   RowBox[{"1536", " ", 
+    SuperscriptBox["\[Pi]", "5"], " ", "t", " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["Q", "2"], "+", "s", "-", "s23", "+", "t"}], ")"}], 
+     "2"]}]], "+", 
+  FractionBox[
+   RowBox[{"3", " ", 
+    SuperscriptBox["g", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"4", " ", 
+       SuperscriptBox["Q", "6"]}], "+", 
+      RowBox[{"20", " ", 
+       SuperscriptBox["Q", "4"], " ", "s"}], "+", 
+      RowBox[{"28", " ", 
+       SuperscriptBox["Q", "2"], " ", 
+       SuperscriptBox["s", "2"]}], "+", 
+      RowBox[{"12", " ", 
+       SuperscriptBox["s", "3"]}], "+", 
+      RowBox[{"12", " ", 
+       SuperscriptBox["Q", "4"], " ", "t"}], "+", 
+      RowBox[{"52", " ", 
+       SuperscriptBox["Q", "2"], " ", "s", " ", "t"}], "+", 
+      RowBox[{"24", " ", 
+       SuperscriptBox["s", "2"], " ", "t"}], "+", 
+      RowBox[{"16", " ", 
+       SuperscriptBox["Q", "2"], " ", 
+       SuperscriptBox["t", "2"]}], "+", 
+      RowBox[{"20", " ", "s", " ", 
+       SuperscriptBox["t", "2"]}]}], ")"}]}], 
+   RowBox[{"512", " ", 
+    SuperscriptBox["\[Pi]", "5"], " ", 
+    RowBox[{"(", 
+     RowBox[{"s23", "-", "t"}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["Q", "2"]}], "-", "s", "+", "s23", "-", "t"}], ")"}], 
+    " ", "t"}]], "+", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["g", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Q", "2"], "+", "s", "+", 
+      RowBox[{"3", " ", "t"}]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "2"}], " ", 
+       SuperscriptBox["Q", "4"], " ", 
+       SuperscriptBox["s23", "2"]}], "-", 
+      RowBox[{"4", " ", 
+       SuperscriptBox["Q", "2"], " ", "s", " ", "s23", " ", "t"}], "-", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["s", "2"], " ", 
+       SuperscriptBox["t", "2"]}]}], ")"}]}], 
+   RowBox[{"384", " ", 
+    SuperscriptBox["\[Pi]", "5"], " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"s23", "-", "t"}], ")"}], "3"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["Q", "2"]}], "-", "s", "+", "s23", "-", "t"}], ")"}], 
+    " ", "t"}]], "+", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["g", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"8", " ", 
+       SuperscriptBox["Q", "4"], " ", "s"}], "+", 
+      RowBox[{"8", " ", 
+       SuperscriptBox["Q", "2"], " ", 
+       SuperscriptBox["s", "2"]}], "-", 
+      RowBox[{"8", " ", 
+       SuperscriptBox["Q", "4"], " ", "t"}], "+", 
+      RowBox[{"32", " ", 
+       SuperscriptBox["Q", "2"], " ", "s", " ", "t"}], "-", 
+      RowBox[{"16", " ", 
+       SuperscriptBox["s", "2"], " ", "t"}], "-", 
+      RowBox[{"16", " ", 
+       SuperscriptBox["Q", "2"], " ", 
+       SuperscriptBox["t", "2"]}], "+", 
+      RowBox[{"24", " ", "s", " ", 
+       SuperscriptBox["t", "2"]}], "-", 
+      RowBox[{"8", " ", 
+       SuperscriptBox["t", "3"]}]}], ")"}]}], 
+   RowBox[{"1536", " ", 
+    SuperscriptBox["\[Pi]", "5"], " ", 
+    RowBox[{"(", 
+     RowBox[{"s23", "-", "t"}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["Q", "2"]}], "-", "s", "+", "s23", "-", "t"}], ")"}], 
+    " ", "t"}]], "+", 
+  FractionBox[
+   RowBox[{"3", " ", 
+    SuperscriptBox["g", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "4"}], " ", 
+       SuperscriptBox["Q", "4"], " ", "s23"}], "-", 
+      RowBox[{"4", " ", 
+       SuperscriptBox["s", "2"], " ", "s23"}], "+", 
+      RowBox[{"8", " ", 
+       SuperscriptBox["Q", "2"], " ", 
+       SuperscriptBox["s23", "2"]}], "+", 
+      RowBox[{"8", " ", "s", " ", 
+       SuperscriptBox["s23", "2"]}], "-", 
+      RowBox[{"8", " ", 
+       SuperscriptBox["s23", "3"]}], "+", 
+      RowBox[{"8", " ", 
+       SuperscriptBox["Q", "4"], " ", "t"}], "+", 
+      RowBox[{"8", " ", 
+       SuperscriptBox["s", "2"], " ", "t"}], "-", 
+      RowBox[{"16", " ", 
+       SuperscriptBox["Q", "2"], " ", "s23", " ", "t"}], "-", 
+      RowBox[{"24", " ", "s", " ", "s23", " ", "t"}], "+", 
+      RowBox[{"28", " ", 
+       SuperscriptBox["s23", "2"], " ", "t"}], "+", 
+      RowBox[{"16", " ", 
+       SuperscriptBox["Q", "2"], " ", 
+       SuperscriptBox["t", "2"]}], "+", 
+      RowBox[{"16", " ", "s", " ", 
+       SuperscriptBox["t", "2"]}], "-", 
+      RowBox[{"32", " ", "s23", " ", 
+       SuperscriptBox["t", "2"]}], "+", 
+      RowBox[{"16", " ", 
+       SuperscriptBox["t", "3"]}]}], ")"}]}], 
+   RowBox[{"64", " ", 
+    SuperscriptBox["\[Pi]", "5"], " ", 
+    RowBox[{"(", 
+     RowBox[{"s23", "-", "t"}], ")"}], " ", "t", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Q", "2"], "+", "s", "-", "s23", "+", "t"}], ")"}]}]], 
+  "+", 
+  FractionBox[
+   RowBox[{"3", " ", 
+    SuperscriptBox["g", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Q", "2"], "+", "s", "-", 
+      RowBox[{"2", " ", "t"}]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", 
+        SuperscriptBox["Q", "4"]}], " ", 
+       SuperscriptBox["t", "2"]}], "-", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["Q", "2"], " ", "s", " ", 
+       SuperscriptBox["t", "2"]}], "-", 
+      RowBox[{
+       SuperscriptBox["s", "2"], " ", 
+       SuperscriptBox["t", "2"]}], "+", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["Q", "2"], " ", "s23", " ", 
+       SuperscriptBox["t", "2"]}], "+", 
+      RowBox[{"2", " ", "s", " ", "s23", " ", 
+       SuperscriptBox["t", "2"]}], "-", 
+      RowBox[{
+       SuperscriptBox["s23", "2"], " ", 
+       SuperscriptBox["t", "2"]}], "-", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["Q", "2"], " ", 
+       SuperscriptBox["t", "3"]}], "-", 
+      RowBox[{"2", " ", "s", " ", 
+       SuperscriptBox["t", "3"]}], "+", 
+      RowBox[{"2", " ", "s23", " ", 
+       SuperscriptBox["t", "3"]}], "-", 
+      SuperscriptBox["t", "4"]}], ")"}]}], 
+   RowBox[{"128", " ", 
+    SuperscriptBox["\[Pi]", "5"], " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"s23", "-", "t"}], ")"}], "3"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["Q", "2"]}], "-", "s", "+", "s23", "-", "t"}], ")"}], 
+    " ", "t"}]], "+", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["g", "2"], " ", 
+    SuperscriptBox["Q", "2"], " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"s", "-", "s23"}], ")"}], "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"4", " ", 
+       SuperscriptBox["Q", "2"], " ", "s23"}], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"s", "+", "t"}], ")"}], "2"]}], ")"}]}], 
+   RowBox[{"96", " ", 
+    SuperscriptBox["\[Pi]", "5"], " ", 
+    SuperscriptBox["s", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "s"}], "+", "s23"}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Q", "2"], "+", "s", "-", "s23", "+", "t"}], ")"}], " ", 
+    
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Q", "2"], "+", 
+      FractionBox[
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"s", "+", "t"}], ")"}], "2"], 
+       RowBox[{"4", " ", "s23"}]]}], ")"}]}]], "-", 
+  FractionBox[
+   RowBox[{"3", " ", 
+    SuperscriptBox["g", "2"], " ", 
+    SuperscriptBox["Q", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{"s23", "-", "t"}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"4", " ", 
+       SuperscriptBox["Q", "2"], " ", "s23"}], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"s", "+", "t"}], ")"}], "2"]}], ")"}]}], 
+   RowBox[{"64", " ", 
+    SuperscriptBox["\[Pi]", "5"], " ", 
+    SuperscriptBox["t", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Q", "2"], "+", "s", "-", "s23", "+", "t"}], ")"}], " ", 
+    
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Q", "2"], "+", 
+      FractionBox[
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"s", "+", "t"}], ")"}], "2"], 
+       RowBox[{"4", " ", "s23"}]]}], ")"}]}]], "-", 
+  FractionBox[
+   RowBox[{"3", " ", 
+    SuperscriptBox["g", "2"], " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"s", "-", "s23"}], ")"}], "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Q", "2"], "+", "s", "-", 
+      RowBox[{"4", " ", "t"}]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "2"}], "-", 
+      FractionBox[
+       RowBox[{"4", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           SuperscriptBox["Q", "2"], " ", "s23"}], "+", 
+          RowBox[{"s", " ", "t"}]}], ")"}]}], 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"s", "-", "s23"}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"s23", "-", "t"}], ")"}]}]], "-", 
+      FractionBox[
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            SuperscriptBox["Q", "2"], " ", "s23"}], "+", 
+           RowBox[{"s", " ", "t"}]}], ")"}], "2"]}], 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"s", "-", "s23"}], ")"}], "2"], " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"s23", "-", "t"}], ")"}], "2"]}]]}], ")"}]}], 
+   RowBox[{"256", " ", 
+    SuperscriptBox["\[Pi]", "5"], " ", 
+    RowBox[{"(", 
+     RowBox[{"s23", "-", "t"}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["Q", "2"]}], "-", "s", "+", "s23", "-", "t"}], ")"}], 
+    " ", "t"}]], "-", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["g", "2"], " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"s", "-", "s23"}], ")"}], "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Q", "2"], "+", "s", "+", 
+      RowBox[{"2", " ", "t"}]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "2"}], "-", 
+      FractionBox[
+       RowBox[{"4", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           SuperscriptBox["Q", "2"], " ", "s23"}], "+", 
+          RowBox[{"s", " ", "t"}]}], ")"}]}], 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"s", "-", "s23"}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"s23", "-", "t"}], ")"}]}]], "-", 
+      FractionBox[
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            SuperscriptBox["Q", "2"], " ", "s23"}], "+", 
+           RowBox[{"s", " ", "t"}]}], ")"}], "2"]}], 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"s", "-", "s23"}], ")"}], "2"], " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"s23", "-", "t"}], ")"}], "2"]}]]}], ")"}]}], 
+   RowBox[{"384", " ", 
+    SuperscriptBox["\[Pi]", "5"], " ", 
+    RowBox[{"(", 
+     RowBox[{"s23", "-", "t"}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["Q", "2"]}], "-", "s", "+", "s23", "-", "t"}], ")"}], 
+    " ", "t"}]]}]], "Output",
+ CellChangeTimes->{3.7291639439546003`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.729163907719096*^9, 3.7291639104685717`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["realpiece"], "Input",
+ CellChangeTimes->{{3.729163861797154*^9, 3.729163884766168*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   FrameBox[GridBox[{
+      {
+       ItemBox[
+        TagBox[
+         RowBox[{
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{
+             SuperscriptBox["g", "2"], " ", 
+             RowBox[{"(", 
+              RowBox[{"s", "-", "s23"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"36", " ", 
+                SuperscriptBox["Q", "2"]}], "+", 
+               RowBox[{"36", " ", "s"}], "+", 
+               RowBox[{"244", " ", "s23"}], "-", 
+               RowBox[{"244", " ", "t"}]}], ")"}]}], 
+            RowBox[{"3072", " ", 
+             SuperscriptBox["\[Pi]", "5"], " ", 
+             RowBox[{"(", 
+              RowBox[{"s23", "-", "t"}], ")"}], " ", "t", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["Q", "2"], "+", "s", "-", "s23", "+", "t"}], 
+              ")"}]}]]}], "-", 
+          FractionBox[
+           RowBox[{
+            SuperscriptBox["g", "2"], " ", 
+            RowBox[{"(", 
+             RowBox[{"s", "-", "s23"}], ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"36", " ", 
+               SuperscriptBox["Q", "2"]}], "+", 
+              RowBox[{"36", " ", "s"}], "-", 
+              RowBox[{"44", " ", "s23"}], "+", 
+              RowBox[{"44", " ", "t"}]}], ")"}]}], 
+           RowBox[{"3072", " ", 
+            SuperscriptBox["\[Pi]", "5"], " ", 
+            RowBox[{"(", 
+             RowBox[{"s23", "-", "t"}], ")"}], " ", "t", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["Q", "2"], "+", "s", "-", "s23", "+", "t"}], 
+             ")"}]}]], "-", 
+          FractionBox[
+           RowBox[{
+            SuperscriptBox["g", "2"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"48", " ", 
+               SuperscriptBox["Q", "2"]}], "+", 
+              RowBox[{"48", " ", "s"}], "-", 
+              RowBox[{"54", " ", "s23"}], "+", 
+              RowBox[{"54", " ", "t"}]}], ")"}]}], 
+           RowBox[{"384", " ", 
+            SuperscriptBox["\[Pi]", "5"], " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["Q", "2"], "+", "s", "-", "s23", "+", "t"}], 
+              ")"}], "2"]}]], "-", 
+          FractionBox[
+           RowBox[{
+            SuperscriptBox["g", "2"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"2", " ", 
+               SuperscriptBox["Q", "2"]}], "+", "s", "+", "t"}], ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"488", " ", 
+               SuperscriptBox["Q", "2"]}], "+", 
+              RowBox[{"488", " ", "s"}], "-", 
+              RowBox[{"64", " ", "s23"}], "+", 
+              RowBox[{"128", " ", "t"}]}], ")"}]}], 
+           RowBox[{"3072", " ", 
+            SuperscriptBox["\[Pi]", "5"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["Q", "2"], "+", "s"}], ")"}], " ", "t", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["Q", "2"], "+", "s", "-", "s23", "+", "t"}], 
+             ")"}]}]], "-", 
+          FractionBox[
+           RowBox[{"3", " ", 
+            SuperscriptBox["g", "2"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"2", " ", 
+               SuperscriptBox["Q", "2"], " ", "s23"}], "-", 
+              RowBox[{
+               SuperscriptBox["Q", "2"], " ", "t"}], "+", 
+              RowBox[{"s", " ", "t"}], "-", 
+              RowBox[{"18", " ", "s23", " ", "t"}], "+", 
+              RowBox[{"17", " ", 
+               SuperscriptBox["t", "2"]}]}], ")"}]}], 
+           RowBox[{"256", " ", 
+            SuperscriptBox["\[Pi]", "5"], " ", 
+            SuperscriptBox["t", "2"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["Q", "2"], "+", "s", "-", "s23", "+", "t"}], 
+             ")"}]}]], "+", 
+          TemplateBox[{"209"},
+           "OutputSizeLimit`Skeleton",
+           DisplayFunction->(FrameBox[
+             RowBox[{"\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+             Background -> GrayLevel[0.75], 
+             BaseStyle -> {
+              "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+               ShowStringCharacters -> False}, BaselinePosition -> Baseline, 
+             ContentPadding -> False, FrameMargins -> 1, FrameStyle -> 
+             GrayLevel[0.75], RoundingRadius -> 7]& )], "+", 
+          TemplateBox[{"1"},
+           "OutputSizeLimit`Skeleton",
+           DisplayFunction->(FrameBox[
+             RowBox[{"\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+             Background -> GrayLevel[0.75], 
+             BaseStyle -> {
+              "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+               ShowStringCharacters -> False}, BaselinePosition -> Baseline, 
+             ContentPadding -> False, FrameMargins -> 1, FrameStyle -> 
+             GrayLevel[0.75], RoundingRadius -> 7]& )], "+", 
+          FractionBox[
+           RowBox[{"3", " ", 
+            SuperscriptBox["g", "2"], " ", 
+            RowBox[{"(", 
+             TemplateBox[{"1"},
+              "OutputSizeLimit`Skeleton",
+              DisplayFunction->(FrameBox[
+                
+                RowBox[{
+                 "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                Background -> GrayLevel[0.75], 
+                BaseStyle -> {
+                 "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                  ShowStringCharacters -> False}, BaselinePosition -> 
+                Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+             ")"}]}], 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"s23", "-", "t"}], ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", 
+               SuperscriptBox["Q", "2"]}], "-", "s", "+", "s23", "-", "t"}], 
+             ")"}], " ", "t"}]], "+", 
+          FractionBox[
+           RowBox[{
+            SuperscriptBox["g", "2"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["Q", "2"], "+", "s", "+", 
+              RowBox[{"3", " ", "t"}]}], ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"-", 
+                RowBox[{"(", 
+                 TemplateBox[{"1"},
+                  "OutputSizeLimit`Skeleton",
+                  DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                 ")"}]}], " ", 
+               RowBox[{"\[Delta]", "[", "s23", "]"}]}], "+", 
+              RowBox[{
+               RowBox[{"(", 
+                TemplateBox[{"1"},
+                 "OutputSizeLimit`Skeleton",
+                 DisplayFunction->(FrameBox[
+                   
+                   RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                   Background -> GrayLevel[0.75], 
+                   BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                   Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                   FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                ")"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"Plus1B", "[", 
+                  RowBox[{"B", ",", "s23"}], "]"}], "+", 
+                 TemplateBox[{"1"},
+                  "OutputSizeLimit`Skeleton",
+                  DisplayFunction->(FrameBox[
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )]}],
+                 ")"}]}], "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"(", 
+                 TemplateBox[{"1"},
+                  "OutputSizeLimit`Skeleton",
+                  DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                 ")"}], " ", 
+                RowBox[{"(", 
+                 TemplateBox[{"1"},
+                  "OutputSizeLimit`Skeleton",
+                  DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                 ")"}]}], 
+               RowBox[{"128", " ", 
+                SuperscriptBox["\[Pi]", "5"]}]]}], ")"}]}], 
+           RowBox[{"3", " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{"s23", "-", "t"}], ")"}], "3"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", 
+               SuperscriptBox["Q", "2"]}], "-", "s", "+", "s23", "-", "t"}], 
+             ")"}], " ", "t"}]], "+", 
+          FractionBox[
+           RowBox[{
+            SuperscriptBox["g", "2"], " ", 
+            RowBox[{"(", 
+             TemplateBox[{"1"},
+              "OutputSizeLimit`Skeleton",
+              DisplayFunction->(FrameBox[
+                
+                RowBox[{
+                 "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                Background -> GrayLevel[0.75], 
+                BaseStyle -> {
+                 "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                  ShowStringCharacters -> False}, BaselinePosition -> 
+                Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+             ")"}]}], 
+           RowBox[{"3", " ", 
+            RowBox[{"(", 
+             RowBox[{"s23", "-", "t"}], ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", 
+               SuperscriptBox["Q", "2"]}], "-", "s", "+", "s23", "-", "t"}], 
+             ")"}], " ", "t"}]], "-", 
+          RowBox[{
+           FractionBox["1", 
+            RowBox[{
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"s23", "-", "t"}], ")"}], "3"], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"-", 
+                SuperscriptBox["Q", "2"]}], "-", "s", "+", "s23", "-", "t"}], 
+              ")"}], " ", "t"}]], "3", " ", 
+           SuperscriptBox["g", "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", 
+               RowBox[{"(", 
+                RowBox[{
+                 TemplateBox[{"12"},
+                  "OutputSizeLimit`Skeleton",
+                  DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                 "+", 
+                 RowBox[{"EulerGamma", " ", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    FractionBox[
+                    RowBox[{"EulerGamma", " ", 
+                    RowBox[{"(", 
+                    TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton",
+                    DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                    ")"}], " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    SuperscriptBox["Q", "4"], " ", 
+                    SuperscriptBox["t", "2"]}], "+", 
+                    RowBox[{"2", " ", 
+                    SuperscriptBox["Q", "2"], " ", "s", " ", 
+                    SuperscriptBox["t", "2"]}], "+", 
+                    TemplateBox[{"7"},
+                    "OutputSizeLimit`Skeleton",
+                    DisplayFunction->(FrameBox[
+                    
+                    RowBox[{"\" \[CenterEllipsis]\"", #, 
+                    "\"\[CenterEllipsis] \""}], Background -> GrayLevel[0.75],
+                     BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                    "+", 
+                    RowBox[{"2", " ", "s", " ", 
+                    SuperscriptBox["t", "3"]}], "-", 
+                    RowBox[{"2", " ", "s23", " ", 
+                    SuperscriptBox["t", "3"]}], "+", 
+                    SuperscriptBox["t", "4"]}], ")"}]}], 
+                    RowBox[{"64", " ", 
+                    SuperscriptBox["\[Pi]", "5"]}]], "-", 
+                    FractionBox[
+                    RowBox[{
+                    RowBox[{"(", 
+                    TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton",
+                    DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                    ")"}], " ", 
+                    TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton",
+                    DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )]}], 
+                    RowBox[{"256", " ", 
+                    SuperscriptBox["\[Pi]", "5"]}]], "+", 
+                    RowBox[{"2", " ", 
+                    RowBox[{"(", 
+                    TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton",
+                    DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                    ")"}], " ", 
+                    RowBox[{"(", 
+                    TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton",
+                    DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                    ")"}]}], "-", 
+                    FractionBox[
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    SuperscriptBox["Q", "2"], "+", "s", "-", 
+                    RowBox[{"2", " ", "t"}]}], ")"}], " ", 
+                    RowBox[{"(", 
+                    TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton",
+                    DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                    ")"}], " ", 
+                    RowBox[{"Log", "[", "\[Mu]", "]"}]}], 
+                    RowBox[{"32", " ", 
+                    SuperscriptBox["\[Pi]", "5"]}]]}], ")"}]}]}], ")"}]}], 
+              " ", 
+              RowBox[{"\[Delta]", "[", "s23", "]"}]}], "+", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                FractionBox[
+                 RowBox[{"EulerGamma", " ", 
+                  RowBox[{"(", 
+                   TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton",
+                    DisplayFunction->(FrameBox[
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                   ")"}], " ", 
+                  RowBox[{"(", 
+                   TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton",
+                    DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                   ")"}]}], 
+                 RowBox[{"128", " ", 
+                  SuperscriptBox["\[Pi]", "5"]}]], "-", 
+                FractionBox[
+                 TemplateBox[{"1"},
+                  "OutputSizeLimit`Skeleton",
+                  DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                 RowBox[{"256", " ", 
+                  SuperscriptBox["\[Pi]", "5"]}]], "+", 
+                RowBox[{"2", " ", 
+                 RowBox[{"(", 
+                  TemplateBox[{"1"},
+                   "OutputSizeLimit`Skeleton",
+                   DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                  ")"}], " ", 
+                 RowBox[{"(", 
+                  TemplateBox[{"1"},
+                   "OutputSizeLimit`Skeleton",
+                   DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                  ")"}]}], "-", 
+                FractionBox[
+                 TemplateBox[{"1"},
+                  "OutputSizeLimit`Skeleton",
+                  DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                 RowBox[{"32", " ", 
+                  SuperscriptBox["\[Pi]", "5"]}]]}], ")"}], " ", 
+              TemplateBox[{"1"},
+               "OutputSizeLimit`Skeleton",
+               DisplayFunction->(FrameBox[
+                 
+                 RowBox[{
+                  "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                 Background -> GrayLevel[0.75], 
+                 BaseStyle -> {
+                  "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                   ShowStringCharacters -> False}, BaselinePosition -> 
+                 Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                 FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )]}], 
+             "-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 SuperscriptBox["Q", "2"], "+", "s", "-", 
+                 RowBox[{"2", " ", "t"}]}], ")"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{
+                  SuperscriptBox["Q", "4"], " ", 
+                  SuperscriptBox["t", "2"]}], "+", 
+                 RowBox[{"2", " ", 
+                  SuperscriptBox["Q", "2"], " ", "s", " ", 
+                  SuperscriptBox["t", "2"]}], "+", 
+                 TemplateBox[{"10"},
+                  "OutputSizeLimit`Skeleton",
+                  DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                 "+", 
+                 SuperscriptBox["t", "4"]}], ")"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", 
+                  RowBox[{"Plus2B", "[", 
+                   RowBox[{"B", ",", "s23"}], "]"}]}], "-", 
+                 RowBox[{
+                  FractionBox["1", "2"], " ", 
+                  SuperscriptBox[
+                   RowBox[{"Log", "[", "B", "]"}], "2"], " ", 
+                  RowBox[{"\[Delta]", "[", "s23", "]"}]}]}], ")"}]}], 
+              RowBox[{"128", " ", 
+               SuperscriptBox["\[Pi]", "5"]}]]}], ")"}]}], "+", 
+          FractionBox[
+           TemplateBox[{"1"},
+            "OutputSizeLimit`Skeleton",
+            DisplayFunction->(FrameBox[
+              RowBox[{"\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}],
+               Background -> GrayLevel[0.75], 
+              BaseStyle -> {
+               "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                ShowStringCharacters -> False}, BaselinePosition -> Baseline, 
+              ContentPadding -> False, FrameMargins -> 1, FrameStyle -> 
+              GrayLevel[0.75], RoundingRadius -> 7]& )], 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"s23", "-", "t"}], ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", 
+               SuperscriptBox["Q", "2"]}], "-", "s", "+", "s23", "-", "t"}], 
+             ")"}], " ", "t"}]], "+", 
+          FractionBox[
+           RowBox[{
+            SuperscriptBox["g", "2"], " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{"s", "-", "s23"}], ")"}], "2"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"-", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"-", 
+                   FractionBox[
+                    RowBox[{
+                    SuperscriptBox["Q", "2"], "+", "s", "+", 
+                    RowBox[{"2", " ", "t"}]}], 
+                    RowBox[{"128", " ", 
+                    SuperscriptBox["\[Pi]", "5"]}]]}], "-", 
+                  FractionBox[
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    FractionBox[
+                    SuperscriptBox["EulerGamma", "2"], "2"], "-", 
+                    FractionBox[
+                    SuperscriptBox["\[Pi]", "2"], "12"]}], ")"}], " ", 
+                    RowBox[{"(", 
+                    TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton",
+                    DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                    ")"}], " ", 
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    FractionBox[
+                    RowBox[{"4", " ", 
+                    RowBox[{"(", 
+                    TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton",
+                    DisplayFunction->(FrameBox[
+                    
+                    RowBox[{"\" \[CenterEllipsis]\"", #, 
+                    "\"\[CenterEllipsis] \""}], Background -> GrayLevel[0.75],
+                     BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                    ")"}]}], 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"s", "-", 
+                    TemplateBox[{"3"},
+                    "OutputSizeLimit`Skeleton",
+                    DisplayFunction->(FrameBox[
+                    
+                    RowBox[{"\" \[CenterEllipsis]\"", #, 
+                    "\"\[CenterEllipsis] \""}], Background -> GrayLevel[0.75],
+                     BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )]}],
+                     ")"}], 
+                    TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton",
+                    DisplayFunction->(FrameBox[
+                    
+                    RowBox[{"\" \[CenterEllipsis]\"", #, 
+                    "\"\[CenterEllipsis] \""}], Background -> GrayLevel[0.75],
+                     BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                    TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton",
+                    DisplayFunction->(FrameBox[
+                    
+                    RowBox[{"\" \[CenterEllipsis]\"", #, 
+                    "\"\[CenterEllipsis] \""}], Background -> GrayLevel[0.75],
+                     BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 
+                    7]& )]}]], "+", 
+                    FractionBox[
+                    RowBox[{"2", " ", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton",
+                    DisplayFunction->(FrameBox[
+                    
+                    RowBox[{"\" \[CenterEllipsis]\"", #, 
+                    "\"\[CenterEllipsis] \""}], Background -> GrayLevel[0.75],
+                     BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                    ")"}], "2"]}], 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton",
+                    DisplayFunction->(FrameBox[
+                    
+                    RowBox[{"\" \[CenterEllipsis]\"", #, 
+                    "\"\[CenterEllipsis] \""}], Background -> GrayLevel[0.75],
+                     BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                    ")"}], "2"], " ", 
+                    SuperscriptBox[
+                    TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton",
+                    DisplayFunction->(FrameBox[
+                    
+                    RowBox[{"\" \[CenterEllipsis]\"", #, 
+                    "\"\[CenterEllipsis] \""}], Background -> GrayLevel[0.75],
+                     BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+                    "2"]}]]}], ")"}]}], 
+                   RowBox[{"128", " ", 
+                    SuperscriptBox["\[Pi]", "5"]}]], "+", 
+                  TemplateBox[{"13"},
+                   "OutputSizeLimit`Skeleton",
+                   DisplayFunction->(FrameBox[
+                    
+                    RowBox[{
+                    "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                    Background -> GrayLevel[0.75], 
+                    BaseStyle -> {
+                    "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                    Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                    FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )]}],
+                  ")"}]}], " ", 
+               RowBox[{"\[Delta]", "[", "s23", "]"}]}], "+", 
+              TemplateBox[{"1"},
+               "OutputSizeLimit`Skeleton",
+               DisplayFunction->(FrameBox[
+                 
+                 RowBox[{
+                  "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                 Background -> GrayLevel[0.75], 
+                 BaseStyle -> {
+                  "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                   ShowStringCharacters -> False}, BaselinePosition -> 
+                 Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                 FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], "-", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  SuperscriptBox["Q", "2"], "+", "s", "+", 
+                  RowBox[{"2", " ", "t"}]}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{"2", "+", 
+                  FractionBox[
+                   RowBox[{"4", " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    SuperscriptBox["Q", "2"], " ", "s23"}], "+", 
+                    RowBox[{"s", " ", "t"}]}], ")"}]}], 
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"s", "-", "s23"}], ")"}], " ", 
+                    RowBox[{"(", 
+                    RowBox[{"s23", "-", "t"}], ")"}]}]], "+", 
+                  FractionBox[
+                   RowBox[{"2", " ", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    SuperscriptBox["Q", "2"], " ", "s23"}], "+", 
+                    RowBox[{"s", " ", "t"}]}], ")"}], "2"]}], 
+                   RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"s", "-", "s23"}], ")"}], "2"], " ", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"s23", "-", "t"}], ")"}], "2"]}]]}], ")"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"-", 
+                   RowBox[{"Plus2B", "[", 
+                    RowBox[{"B", ",", "s23"}], "]"}]}], "-", 
+                  RowBox[{
+                   FractionBox["1", "2"], " ", 
+                   SuperscriptBox[
+                    RowBox[{"Log", "[", "B", "]"}], "2"], " ", 
+                   RowBox[{"\[Delta]", "[", "s23", "]"}]}]}], ")"}]}], 
+               RowBox[{"128", " ", 
+                SuperscriptBox["\[Pi]", "5"]}]]}], ")"}]}], 
+           RowBox[{"3", " ", 
+            RowBox[{"(", 
+             RowBox[{"s23", "-", "t"}], ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", 
+               SuperscriptBox["Q", "2"]}], "-", "s", "+", "s23", "-", "t"}], 
+             ")"}], " ", "t"}]]}],
+         Short[#, 10]& ],
+        BaseStyle->{Deployed -> False},
+        StripOnInput->False]},
+      {GridBox[{
+         {
+          TagBox[
+           TooltipBox[
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource[
+                "FEStrings", "sizeBriefExplanation"], StandardForm],
+               ImageSizeCache->{68., {2., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarCategory",
+             StripOnInput->False],
+            StyleBox[
+             DynamicBox[
+              ToBoxes[
+               FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"], 
+               StandardForm]], DynamicUpdating -> True, StripOnInput -> 
+             False]],
+           Annotation[#, 
+            Style[
+             Dynamic[
+              FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"]], 
+             DynamicUpdating -> True], "Tooltip"]& ], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm],
+               ImageSizeCache->{64., {0., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            Identity, 17, 24911473867688665890, 10/2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm],
+               ImageSizeCache->{70., {0., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            Identity, 17, 24911473867688665890, 10 2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm],
+               ImageSizeCache->{54., {0., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            Identity, 17, 24911473867688665890, Infinity],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm],
+               ImageSizeCache->{94., {0., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           ButtonFunction:>FrontEndExecute[{
+              FrontEnd`SetOptions[
+              FrontEnd`$FrontEnd, 
+               FrontEnd`PreferencesSettings -> {"Page" -> "Evaluation"}], 
+              FrontEnd`FrontEndToken["PreferencesDialog"]}],
+           Evaluator->None,
+           Method->"Preemptive"]}
+        },
+        AutoDelete->False,
+        FrameStyle->GrayLevel[0.85],
+        GridBoxDividers->{"Columns" -> {False, {True}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{2}}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxDividers->{
+      "Columns" -> {{False}}, "ColumnsIndexed" -> {}, "Rows" -> {{False}}, 
+       "RowsIndexed" -> {}},
+     GridBoxItemSize->{
+      "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], 
+         Offset[1.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Background->RGBColor[0.9657, 0.9753, 0.9802],
+    FrameMargins->{{12, 12}, {0, 15}},
+    FrameStyle->GrayLevel[0.85],
+    RoundingRadius->5,
+    StripOnInput->False],
+   Deploy,
+   DefaultBaseStyle->"Deploy"],
+  Out[17]]], "Output",
+ CellChangeTimes->{{3.729163865490121*^9, 3.729163885525569*^9}}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.729163871895399*^9, 3.729163875122121*^9}}]
+},
+WindowSize->{1898, 1011},
+WindowMargins->{{9, Automatic}, {Automatic, 33}},
+FrontEndVersion->"10.0 for Linux x86 (64-bit) (September 9, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 298, 6, 32, "Input"],
+Cell[CellGroupData[{
+Cell[881, 30, 833, 14, 99, "Input"],
+Cell[1717, 46, 863, 13, 32, "Output"],
+Cell[2583, 61, 862, 13, 32, "Output"]
+}, Open  ]],
+Cell[3460, 77, 278, 5, 55, "Text"],
+Cell[3741, 84, 8699, 229, 385, "Input"],
+Cell[12443, 315, 281, 5, 55, "Text"],
+Cell[12727, 322, 1523, 33, 121, "Input"],
+Cell[14253, 357, 283, 5, 55, "Text"],
+Cell[14539, 364, 250, 6, 32, "Input"],
+Cell[CellGroupData[{
+Cell[14814, 374, 639, 15, 32, "Input"],
+Cell[15456, 391, 336, 5, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15829, 401, 521, 13, 32, "Input"],
+Cell[16353, 416, 240, 3, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16630, 424, 659, 15, 32, "Input"],
+Cell[17292, 441, 445, 10, 49, "Message"],
+Cell[17740, 453, 445, 10, 49, "Message"],
+Cell[18188, 465, 22505, 534, 223, "Output"]
+}, Open  ]],
+Cell[40708, 1002, 324, 6, 55, "Text"],
+Cell[41035, 1010, 94, 1, 32, "Input"],
+Cell[CellGroupData[{
+Cell[41154, 1015, 295, 8, 55, "Input"],
+Cell[41452, 1025, 18599, 599, 373, "Output"]
+}, Open  ]],
+Cell[60066, 1627, 197, 3, 121, "Input"],
+Cell[CellGroupData[{
+Cell[60288, 1634, 101, 1, 32, "Input"],
+Cell[60392, 1637, 45144, 1007, 355, "Output"]
+}, Open  ]],
+Cell[105551, 2647, 92, 1, 32, "Input"]
+}
+]
+*)
+
