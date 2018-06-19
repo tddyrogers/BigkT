@@ -1,2 +1,2 @@
 # BigkT
-Repository for larger transverse momentum pQCD calculations
+Large transverse momentum pQCD calculations
